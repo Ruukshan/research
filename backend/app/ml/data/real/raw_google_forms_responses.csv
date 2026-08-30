@@ -1,0 +1,129 @@
+Timestamp,1. What is your gender?,2.  What province are you from?,3.  What type of school did you attend?,4. What grade did you get for each O/L subject? [Mathematics],4. What grade did you get for each O/L subject? [Science],4. What grade did you get for each O/L subject? [English],4. What grade did you get for each O/L subject? [Sinhala/Tamil],4. What grade did you get for each O/L subject? [History],4. What grade did you get for each O/L subject? [Relegion],"4. What grade did you get for each O/L subject? [Commerce, Geography]","4. What grade did you get for each O/L subject? [ICT, Health Science]",4. What grade did you get for each O/L subject? [Art/Music/Drama],5.  How many A grades did you get at O/L overall?,6.  I enjoy solving mathematical problems and logical puzzles.,"7. I like working with tools, machines, or doing hands-on practical work.","8.  I enjoy drawing, writing stories, music, or other creative activities.","9.  I like helping, teaching, or working closely with other people.","10.  I enjoy leading groups, persuading others, or managing projects.","11.  I prefer following clear rules, organizing information, and working with data.",12.  Which extracurricular activities did you participate in? (select all that apply),13.  Who most influenced your stream selection?,14.  How satisfied are you with the stream you chose?,15.   Which A/L subject stream did you select?,16.  What career field are you hoping to enter after A/L?,17.  Do you feel your chosen stream aligns well with your career goal?
+6/10/2026 17:38:56,Female,Sabaragamuwa,Provincial school,C,S,A,B,B,C,C,C,B,1–2,4.0,3.0,5.0,4.0,3.0,3.0,Leadership,Teachers,4.0,Arts,Education,Somewhat
+6/10/2026 17:40:52,Female,Sabaragamuwa,National school,A,A,A,A,A,A,B,A,A,7–9,5.0,5.0,5.0,5.0,5.0,5.0,Prefect,Own interest,5.0,Technology,IT,"Yes, very well"
+6/10/2026 17:45:39,Male,Sabaragamuwa,National school,A,B,B,A,A,A,A,A,B,5–6,4.0,3.0,4.0,3.0,4.0,3.0,"Arts, ICT",Friends,3.0,Technology,IT,Somewhat
+6/10/2026 17:50:50,Female,Sabaragamuwa,National school,A,A,C,A,A,A,A,A,A,7–9,2.0,2.0,4.0,3.0,2.0,2.0,,Own interest,4.0,Biological Science,Medicine,"Yes, very well"
+6/10/2026 17:50:52,Male,Sabaragamuwa,National school,C,W,S,C,C,S,,C,S,0,2.0,,,,,,,Other,3.0,Commerce,Finance,Somewhat
+6/10/2026 17:55:41,Female,Sabaragamuwa,National school,A,B,B,A,A,A,A,A,B,5–6,3.0,2.0,5.0,5.0,3.0,3.0,,Friends,5.0,Commerce,Government service,"Yes, very well"
+6/10/2026 17:57:56,Female,Sabaragamuwa,National school,A,A,B,A,A,A,A,A,A,7–9,2.0,2.0,3.0,4.0,1.0,1.0,"Science club, Maths club, Arts, Sports, Prefect, Religious activities",Teachers,4.0,Arts,Law,"Yes, very well"
+6/10/2026 18:02:57,Male,Sabaragamuwa,National school,B,B,C,C,S,A,C,C,C,1–2,3.0,5.0,4.0,5.0,4.0,3.0,"Drama, Prefect, Leadership, Religious activities",Parents,4.0,Technology,Business,Somewhat
+6/10/2026 18:03:21,Male,Sabaragamuwa,National school,B,A,S,B,B,A,A,B,C,3–4,3.0,5.0,2.0,3.0,4.0,3.0,"Sports, Prefect",Parents,3.0,Technology,Engineering,"Yes, very well"
+6/10/2026 18:05:35,Female,Sabaragamuwa,National school,C,S,C,C,C,B,C,C,C,0,1.0,1.0,1.0,3.0,4.0,4.0,Arts,Parents,4.0,Technology,Education,"Yes, very well"
+6/10/2026 18:05:53,Female,Sabaragamuwa,National school,A,B,B,A,A,A,,A,B,5–6,5.0,5.0,5.0,5.0,2.0,3.0,Maths club,Parents,5.0,Technology,Education,"Yes, very well"
+6/10/2026 18:06:17,Female,Sabaragamuwa,National school,B,C,B,B,A,C,A,A,S,3–4,5.0,5.0,5.0,5.0,5.0,5.0,"Drama, Sports, ICT, Coding, Prefect, Leadership, Religious activities",Parents,5.0,Technology,IT,"Yes, very well"
+6/10/2026 18:09:16,Female,Sabaragamuwa,National school,A,A,A,A,A,A,B,A,C,7–9,5.0,1.0,2.0,5.0,1.0,3.0,"Science club, Sports",Parents,2.0,Biological Science,Not sure yet,"Yes, very well"
+6/10/2026 18:10:54,Female,Sabaragamuwa,National school,B,B,B,B,B,B,A,B,A,1–2,3.0,5.0,5.0,3.0,5.0,2.0,"Debate, Drama",Friends,5.0,Commerce,Business,"Yes, very well"
+6/10/2026 18:11:11,Female,Sabaragamuwa,National school,C,C,C,B,C,A,,A,C,1–2,2.0,5.0,5.0,5.0,5.0,5.0,"Drama, Arts, Sports, ICT, Prefect, Leadership",Friends,5.0,Arts,Government service,"Yes, very well"
+6/10/2026 18:12:11,Female,Sabaragamuwa,National school,C,S,C,C,S,A,C,B,C,1–2,3.0,2.0,2.0,3.0,3.0,3.0,"ICT, Leadership",Own interest,4.0,Commerce,IT,Somewhat
+6/10/2026 18:12:17,Female,Sabaragamuwa,National school,C,S,C,C,C,B,C,C,C,0,1.0,1.0,2.0,3.0,3.0,4.0,Coding,Own interest,3.0,Technology,Education,"Yes, very well"
+6/10/2026 18:13:04,Female,Sabaragamuwa,National school,A,A,B,B,A,A,A,A,A,7–9,5.0,5.0,5.0,5.0,5.0,5.0,"Arts, Sports, Prefect, Leadership, Religious activities",Parents,5.0,Biological Science,Not sure yet,Somewhat
+6/10/2026 18:15:08,Female,Sabaragamuwa,National school,A,B,A,A,B,A,A,A,A,5–6,5.0,5.0,5.0,5.0,5.0,5.0,,,,,,
+6/10/2026 18:15:08,Female,Sabaragamuwa,National school,A,B,B,B,A,A,A,A,A,5–6,3.0,3.0,4.0,5.0,4.0,3.0,"Science club, Sports, Religious activities",Own interest,3.0,Biological Science,Not sure yet,Somewhat
+6/10/2026 18:16:02,Female,Sabaragamuwa,National school,A,B,B,A,A,A,A,B,A,5–6,5.0,5.0,5.0,5.0,5.0,5.0,,,,,,
+6/10/2026 18:16:49,Female,Sabaragamuwa,National school,C,S,B,B,B,A,C,S,C,1–2,4.0,5.0,3.0,5.0,4.0,5.0,,,,,,
+6/10/2026 18:16:52,Male,Sabaragamuwa,National school,B,B,C,B,A,B,A,A,C,3–4,2.0,3.0,2.0,5.0,1.0,1.0,,,,,,
+6/10/2026 18:16:52,Female,Sabaragamuwa,National school,A,A,A,A,A,A,A,A,C,7–9,1.0,1.0,1.0,5.0,5.0,1.0,,,,,,
+6/10/2026 18:18:10,Male,Sabaragamuwa,National school,A,A,C,B,A,A,A,B,C,5–6,5.0,5.0,3.0,4.0,5.0,,,,,,,
+6/10/2026 18:18:20,Male,Uva,National school,A,B,A,A,B,A,B,A,C,5–6,5.0,3.0,4.0,3.0,3.0,5.0,,,,,,
+6/10/2026 18:19:34,Female,Uva,National school,A,C,S,B,C,B,A,A,B,3–4,4.0,5.0,5.0,4.0,4.0,4.0,,,,,,
+6/10/2026 18:20:33,Female,Sabaragamuwa,National school,A,A,A,A,A,A,A,A,A,7–9,4.0,2.0,5.0,5.0,4.0,5.0,,,,,,
+6/10/2026 18:22:20,Female,Sabaragamuwa,National school,A,B,A,B,B,A,B,B,A,3–4,5.0,2.0,5.0,3.0,2.0,3.0,,,,,,
+6/10/2026 18:25:39,Female,Sabaragamuwa,National school,B,B,B,A,A,A,A,A,A,5–6,5.0,2.0,1.0,3.0,4.0,4.0,,,,,,
+6/10/2026 18:25:52,Female,Sabaragamuwa,National school,A,A,A,A,A,A,A,A,A,7–9,4.0,5.0,5.0,2.0,5.0,5.0,,,,,,
+6/10/2026 18:28:28,Male,Sabaragamuwa,National school,B,C,C,B,C,B,A,B,A,1–2,2.0,4.0,3.0,1.0,3.0,3.0,,,,,,
+6/10/2026 18:28:59,Female,Sabaragamuwa,National school,C,S,B,B,B,B,,B,B,1–2,2.0,4.0,5.0,5.0,4.0,5.0,,,,,,
+6/10/2026 18:29:08,Female,Central,National school,A,A,B,A,A,A,A,A,A,7–9,4.0,4.0,4.0,3.0,3.0,5.0,,,,,,
+6/10/2026 18:29:39,Female,Sabaragamuwa,National school,A,A,C,A,A,A,A,A,A,7–9,1.0,2.0,1.0,4.0,3.0,3.0,,,,,,
+6/10/2026 18:29:45,Female,Sabaragamuwa,National school,A,B,C,B,A,A,A,A,A,5–6,3.0,2.0,3.0,3.0,3.0,2.0,,,,,,
+6/10/2026 18:30:25,Female,Sabaragamuwa,National school,C,C,C,B,B,B,B,A,C,1–2,2.0,3.0,5.0,5.0,5.0,3.0,,,,,,
+6/10/2026 18:32:40,Female,Sabaragamuwa,National school,B,B,B,B,A,A,B,S,A,3–4,2.0,4.0,5.0,5.0,4.0,4.0,,,,,,
+6/10/2026 18:42:00,Female,Sabaragamuwa,National school,A,B,B,A,C,A,A,A,B,5–6,4.0,5.0,3.0,5.0,4.0,4.0,,,,,,
+6/10/2026 18:46:21,Male,Sabaragamuwa,National school,A,A,A,A,A,A,B,A,,7–9,5.0,5.0,5.0,5.0,5.0,5.0,,,,,,
+6/10/2026 18:49:00,Female,Sabaragamuwa,National school,C,C,A,C,B,A,C,C,A,3–4,4.0,5.0,5.0,5.0,5.0,5.0,,,,,,
+6/10/2026 18:49:07,Female,Sabaragamuwa,National school,B,A,C,A,B,A,A,A,B,5–6,5.0,5.0,5.0,5.0,5.0,5.0,,,,,,
+6/10/2026 18:53:20,Female,Sabaragamuwa,Provincial school,A,A,A,A,A,A,A,A,A,7–9,5.0,2.0,5.0,2.0,2.0,3.0,,,,,,
+6/10/2026 18:57:39,Female,Sabaragamuwa,National school,B,A,C,A,A,A,A,B,A,5–6,5.0,5.0,5.0,5.0,5.0,3.0,,,,,,
+6/10/2026 19:00:24,Female,Sabaragamuwa,National school,A,A,A,A,A,A,A,B,B,7–9,5.0,2.0,5.0,5.0,5.0,3.0,,,,,,
+6/10/2026 19:07:12,Female,Sabaragamuwa,National school,B,C,C,B,C,A,A,C,A,3–4,3.0,2.0,5.0,5.0,3.0,1.0,,,,,,
+6/10/2026 19:14:31,Female,Sabaragamuwa,National school,A,B,B,A,B,A,A,B,B,3–4,4.0,3.0,5.0,5.0,5.0,5.0,,,,,,
+6/10/2026 19:21:20,Male,Central,National school,B,B,C,A,A,A,,C,A,5–6,1.0,,1.0,1.0,,1.0,,,,,,
+6/10/2026 19:23:59,Female,Sabaragamuwa,National school,A,A,A,A,A,A,A,A,A,7–9,1.0,1.0,1.0,1.0,1.0,1.0,,,,,,
+6/10/2026 19:28:42,Female,Sabaragamuwa,Semi-government,C,C,A,A,B,A,B,A,A,5–6,4.0,2.0,5.0,3.0,1.0,3.0,,,,,,
+6/10/2026 19:35:23,Female,Sabaragamuwa,National school,C,B,"C, S",B,"B, C",A,A,A,A,3–4,3.0,5.0,5.0,4.0,5.0,5.0,,,,,,
+6/10/2026 19:39:12,Female,Uva,Provincial school,A,A,A,A,A,A,A,A,A,7–9,4.0,1.0,5.0,1.0,3.0,3.0,,,,,,
+6/10/2026 19:47:41,Female,Sabaragamuwa,National school,A,A,A,A,A,B,A,A,A,7–9,5.0,3.0,2.0,4.0,4.0,4.0,,,,,,
+6/10/2026 19:47:45,Male,Sabaragamuwa,National school,C,S,W,B,C,B,C,B,C,0,3.0,2.0,4.0,4.0,3.0,3.0,,,,,,
+6/10/2026 19:48:01,Female,Sabaragamuwa,National school,A,C,A,B,C,C,A,A,B,3–4,5.0,2.0,3.0,5.0,5.0,5.0,,,,,,
+6/10/2026 19:56:28,Female,Sabaragamuwa,Provincial school,B,B,B,A,C,A,B,B,,3–4,5.0,5.0,5.0,5.0,3.0,3.0,,,,,,
+6/10/2026 19:57:47,Female,Sabaragamuwa,Provincial school,B,B,B,A,B,A,B,B,,3–4,5.0,5.0,5.0,3.0,5.0,,,,,,,
+6/10/2026 20:11:30,Male,Sabaragamuwa,National school,C,S,S,C,C,B,B,B,C,0,1.0,5.0,1.0,1.0,2.0,3.0,,,,,,
+6/10/2026 20:14:44,Female,Sabaragamuwa,National school,A,A,C,B,A,A,A,B,B,5–6,5.0,3.0,4.0,4.0,3.0,3.0,,,,,,
+6/10/2026 20:15:47,Male,Sabaragamuwa,National school,A,C,C,B,C,C,C,B,B,1–2,5.0,5.0,3.0,4.0,4.0,5.0,,,,,,
+6/10/2026 20:19:49,Female,Sabaragamuwa,National school,C,B,B,A,C,A,B,A,B,3–4,5.0,5.0,5.0,5.0,5.0,5.0,,,,,,
+6/10/2026 20:26:10,Female,Sabaragamuwa,National school,B,C,C,A,S,A,B,B,B,1–2,4.0,3.0,5.0,5.0,3.0,5.0,,,,,,
+6/10/2026 20:37:59,Female,Uva,National school,C,C,C,B,C,A,,,,1–2,1.0,1.0,2.0,3.0,1.0,3.0,,,,,,
+6/10/2026 20:40:17,Female,Sabaragamuwa,National school,B,A,S,A,B,A,B,A,B,3–4,4.0,4.0,2.0,5.0,4.0,3.0,,,,,,
+6/10/2026 20:45:21,Female,Sabaragamuwa,Semi-government,A,B,C,B,A,A,A,A,A,5–6,5.0,4.0,4.0,4.0,4.0,5.0,,,,,,
+6/10/2026 20:49:46,Female,Sabaragamuwa,National school,A,A,B,A,A,A,,A,,7–9,4.0,3.0,5.0,2.0,3.0,5.0,,,,,,
+6/10/2026 22:13:49,Male,Sabaragamuwa,National school,C,C,C,C,B,A,A,B,C,1–2,5.0,5.0,4.0,5.0,5.0,5.0,,,,,,
+6/10/2026 23:42:59,Female,Sabaragamuwa,National school,B,B,C,A,C,B,,,,3–4,5.0,1.0,5.0,5.0,4.0,4.0,,,,,,
+6/11/2026 6:30:06,Female,Sabaragamuwa,National school,A,C,C,B,A,A,,C,B,3–4,2.0,5.0,5.0,5.0,5.0,,,,,,,
+6/11/2026 7:37:12,Female,Sabaragamuwa,National school,C,C,C,C,C,C,S,C,C,0,4.0,4.0,5.0,4.0,5.0,5.0,,,,,,
+6/11/2026 12:25:10,Male,Uva,National school,A,A,B,A,A,A,A,A,A,7–9,5.0,3.0,5.0,5.0,2.0,3.0,,,,,,
+6/11/2026 16:08:04,Female,Sabaragamuwa,Provincial school,C,C,S,B,C,A,B,A,B,1–2,1.0,1.0,4.0,3.0,3.0,2.0,,,,,,
+6/14/2026 20:15:32,Female,Southern,National school,A,B,C,A,A,A,A,C,A,0,5.0,4.0,5.0,5.0,5.0,5.0,,,,,,
+6/25/2026 11:40:39,Female,Sabaragamuwa,National school,A,B,S,A,A,A,A,A,A,7–9,5.0,2.0,5.0,5.0,3.0,5.0,,,,,,
+6/25/2026 12:53:39,Male,Sabaragamuwa,National school,S,S,S,C,C,C,,C,S,0,,5.0,,,,4.0,,,,,,
+6/25/2026 23:21:01,Male,Sabaragamuwa,Semi-government,"A, C",S,S,C,B,B,C,A,C,1–2,4.0,3.0,2.0,5.0,2.0,1.0,,,,,,
+6/25/2026 23:30:24,Male,Sabaragamuwa,National school,C,S,C,C,C,C,C,A,W,1–2,5.0,5.0,2.0,5.0,3.0,5.0,,,,,,
+7/19/2026 21:24:23,Female,Sabaragamuwa,National school,A,B,B,B,A,A,A,A,A,5–6,4.0,3.0,5.0,5.0,5.0,4.0,,,,,,
+2026-06-24 12:33:54.000,Female,Central,Provincial school,C,A,A,S,S,A,C,B,A,1–2,1.0,2.0,5.0,5.0,2.0,1.0,Leadership,Parents,4.0,Biological Science,Medicine,"Yes, very well"
+2026-06-25 17:01:12.000,Male,Central,Provincial school,W,S,C,A,A,W,C,S,A,0,5.0,5.0,3.0,4.0,2.0,5.0,"Sports, Prefect",Parents,3.0,Technology,IT,Somewhat
+2026-06-21 08:17:46.000,Female,Southern,Semi-government,W,W,W,W,S,A,B,B,S,0,2.0,3.0,4.0,3.0,1.0,2.0,"Science club, Maths club",Other,1.0,Arts,Business,Somewhat
+2026-06-10 15:23:41.000,Female,Central,National school,A,A,A,W,B,W,A,C,S,1–2,4.0,1.0,5.0,3.0,5.0,1.0,,Teachers,2.0,Biological Science,Business,"Yes, very well"
+2026-06-11 20:27:12.000,Male,Central,Semi-government,A,B,W,W,A,C,C,W,C,3–4,4.0,5.0,5.0,1.0,5.0,1.0,,Parents,4.0,Arts,Not sure yet,Somewhat
+2026-06-12 08:28:40.000,Female,Southern,National school,W,A,S,B,B,S,W,A,C,1–2,5.0,4.0,1.0,5.0,5.0,3.0,"Drama, Arts",Parents,3.0,Technology,Finance,"Yes, very well"
+2026-06-25 14:05:44.000,Male,Sabaragamuwa,Provincial school,C,W,B,B,S,W,S,W,B,7–9,2.0,2.0,4.0,2.0,5.0,5.0,"Sports, Prefect",Parents,3.0,Commerce,Government service,"Yes, very well"
+2026-06-13 15:49:06.000,Female,Southern,Provincial school,S,A,W,W,W,B,A,S,S,1–2,2.0,5.0,3.0,2.0,1.0,1.0,"Arts, ICT",Parents,3.0,Technology,Law,"Yes, very well"
+2026-06-11 20:20:03.000,Male,Sabaragamuwa,Semi-government,B,C,S,B,B,B,S,W,B,0,5.0,1.0,1.0,1.0,2.0,5.0,Leadership,Parents,4.0,Commerce,Law,"Yes, very well"
+2026-06-16 11:26:57.000,Female,Sabaragamuwa,National school,C,A,A,W,A,S,C,W,C,1–2,3.0,4.0,4.0,5.0,5.0,1.0,"Arts, ICT",Parents,1.0,Technology,Government service,Somewhat
+2026-06-14 12:00:18.000,Male,Central,Provincial school,C,S,C,C,S,A,B,B,S,3–4,5.0,5.0,3.0,5.0,1.0,5.0,,Own interest,2.0,Technology,IT,Somewhat
+2026-06-11 11:37:13.000,Female,Uva,Provincial school,B,A,A,C,W,C,W,B,W,1–2,3.0,5.0,2.0,5.0,5.0,1.0,"Science club, Maths club",Friends,5.0,Commerce,Government service,Somewhat
+2026-06-24 10:26:11.000,Male,Sabaragamuwa,Semi-government,B,B,B,S,B,W,A,W,C,1–2,4.0,5.0,3.0,3.0,4.0,3.0,,Friends,4.0,Biological Science,Medicine,"Yes, very well"
+2026-06-12 15:22:51.000,Male,Uva,Provincial school,S,S,C,S,C,S,A,C,W,7–9,4.0,2.0,2.0,5.0,1.0,2.0,"Sports, Prefect",Friends,2.0,Arts,Education,Somewhat
+2026-06-15 11:13:48.000,Female,Southern,Provincial school,A,W,C,B,W,S,C,C,W,5–6,3.0,1.0,1.0,5.0,4.0,3.0,"Drama, Arts",Other,3.0,Technology,Medicine,"Yes, very well"
+2026-06-18 15:14:31.000,Female,Central,Semi-government,W,C,B,A,W,B,B,B,B,5–6,5.0,4.0,4.0,4.0,5.0,3.0,"Science club, Maths club",Friends,2.0,Technology,Business,"Yes, very well"
+2026-06-12 18:48:19.000,Female,Southern,Provincial school,S,W,C,S,A,A,S,W,B,5–6,4.0,5.0,5.0,3.0,2.0,2.0,"Drama, Arts",Parents,4.0,Arts,Medicine,Somewhat
+2026-06-21 17:52:33.000,Male,Uva,Provincial school,S,B,S,W,A,W,B,S,C,5–6,4.0,1.0,2.0,4.0,3.0,4.0,"Science club, Maths club",Parents,2.0,Technology,Engineering,Somewhat
+2026-06-22 12:01:58.000,Male,Southern,Semi-government,S,C,A,A,C,S,C,A,S,0,5.0,4.0,4.0,5.0,3.0,4.0,Leadership,Teachers,1.0,Commerce,Education,Somewhat
+2026-06-19 08:08:39.000,Female,Central,Semi-government,B,S,A,W,A,C,C,C,S,7–9,2.0,1.0,2.0,4.0,2.0,4.0,"Drama, Arts",Teachers,2.0,Arts,Engineering,"Yes, very well"
+2026-06-25 08:19:03.000,Male,Southern,Provincial school,W,S,S,C,A,S,B,C,W,0,2.0,2.0,5.0,3.0,1.0,2.0,"Science club, Maths club",Own interest,3.0,Biological Science,Not sure yet,Somewhat
+2026-06-11 14:05:11.000,Male,Central,National school,C,A,C,A,S,C,B,A,B,1–2,1.0,5.0,3.0,2.0,4.0,4.0,"Science club, Maths club",Friends,2.0,Technology,Medicine,"Yes, very well"
+2026-06-15 19:05:47.000,Male,Central,Provincial school,C,S,B,B,W,C,C,S,A,5–6,1.0,5.0,5.0,3.0,2.0,2.0,,Parents,5.0,Arts,Law,"Yes, very well"
+2026-06-10 11:53:52.000,Female,Central,National school,B,C,A,B,B,B,A,C,A,5–6,3.0,1.0,5.0,1.0,5.0,5.0,"Arts, ICT",Teachers,1.0,Biological Science,Government service,"Yes, very well"
+2026-06-16 20:12:17.000,Female,Uva,National school,W,S,S,W,A,W,W,A,B,3–4,5.0,4.0,4.0,2.0,4.0,3.0,,Teachers,1.0,Arts,Government service,Somewhat
+2026-06-15 20:18:39.000,Female,Southern,Provincial school,B,A,B,W,S,W,W,A,S,3–4,1.0,5.0,1.0,4.0,5.0,4.0,,Parents,2.0,Arts,Medicine,Somewhat
+2026-06-25 15:53:02.000,Male,Uva,Semi-government,W,S,B,C,A,C,C,C,B,7–9,4.0,2.0,1.0,4.0,2.0,3.0,Leadership,Teachers,1.0,Technology,Engineering,"Yes, very well"
+2026-06-16 18:50:45.000,Female,Uva,National school,W,W,A,S,A,S,C,C,W,1–2,5.0,1.0,5.0,5.0,1.0,5.0,"Science club, Maths club",Own interest,4.0,Commerce,Not sure yet,Somewhat
+2026-06-23 18:35:32.000,Male,Sabaragamuwa,National school,B,C,B,B,S,C,C,C,W,0,3.0,5.0,4.0,4.0,5.0,1.0,"Science club, Maths club",Parents,4.0,Arts,Engineering,"Yes, very well"
+2026-06-25 16:09:05.000,Male,Central,Semi-government,W,W,C,W,C,W,C,A,W,5–6,4.0,4.0,2.0,4.0,2.0,2.0,"Drama, Arts",Parents,5.0,Commerce,Government service,"Yes, very well"
+2026-06-11 20:09:07.000,Female,Sabaragamuwa,Semi-government,W,C,A,A,S,S,B,B,A,7–9,3.0,5.0,1.0,1.0,5.0,2.0,"Sports, Prefect",Friends,2.0,Commerce,Not sure yet,"Yes, very well"
+2026-06-24 08:35:57.000,Male,Sabaragamuwa,Provincial school,B,C,S,S,B,B,W,C,W,1–2,4.0,1.0,2.0,2.0,2.0,5.0,,Parents,2.0,Biological Science,Engineering,Somewhat
+2026-06-17 13:44:56.000,Female,Uva,Provincial school,A,W,W,W,B,C,W,S,B,1–2,1.0,1.0,1.0,2.0,4.0,5.0,,Friends,1.0,Commerce,Business,Somewhat
+2026-06-11 10:00:19.000,Female,Uva,National school,C,A,B,W,A,W,B,S,B,5–6,3.0,2.0,2.0,3.0,2.0,5.0,Leadership,Own interest,3.0,Arts,Law,Somewhat
+2026-06-10 15:16:46.000,Female,Sabaragamuwa,Provincial school,W,A,C,W,W,W,B,A,W,0,3.0,1.0,4.0,1.0,5.0,4.0,"Sports, Prefect",Teachers,4.0,Biological Science,Finance,"Yes, very well"
+2026-06-18 20:57:13.000,Male,Uva,Provincial school,W,W,S,W,W,B,A,C,B,0,4.0,2.0,4.0,2.0,3.0,4.0,"Science club, Maths club",Friends,5.0,Biological Science,IT,"Yes, very well"
+2026-06-24 17:10:07.000,Female,Uva,Semi-government,B,W,S,S,A,B,S,W,A,5–6,4.0,1.0,2.0,4.0,2.0,1.0,"Science club, Maths club",Other,3.0,Technology,Finance,"Yes, very well"
+2026-06-21 16:09:08.000,Male,Central,Semi-government,S,B,C,C,C,A,W,S,W,7–9,5.0,2.0,4.0,4.0,5.0,2.0,"Science club, Maths club",Own interest,3.0,Biological Science,Medicine,"Yes, very well"
+2026-06-14 17:54:47.000,Female,Uva,National school,S,A,W,C,W,C,S,B,B,3–4,5.0,1.0,2.0,5.0,1.0,4.0,,Teachers,3.0,Arts,Education,Somewhat
+2026-06-19 14:49:22.000,Male,Uva,Semi-government,S,W,A,A,A,C,W,B,A,5–6,4.0,4.0,4.0,3.0,3.0,2.0,"Sports, Prefect",Teachers,3.0,Biological Science,Government service,Somewhat
+2026-06-25 18:24:41.000,Male,Sabaragamuwa,Provincial school,C,S,S,W,S,C,W,C,C,5–6,2.0,5.0,1.0,5.0,2.0,3.0,"Drama, Arts",Own interest,3.0,Commerce,Education,Somewhat
+2026-06-21 09:01:39.000,Female,Uva,Semi-government,W,C,S,W,C,W,W,S,C,5–6,3.0,3.0,5.0,4.0,2.0,5.0,,Teachers,3.0,Biological Science,Education,"Yes, very well"
+2026-06-22 11:29:50.000,Male,Central,National school,W,B,B,W,S,A,B,B,C,0,4.0,2.0,1.0,3.0,3.0,2.0,"Science club, Maths club",Parents,2.0,Arts,Not sure yet,"Yes, very well"
+2026-06-10 15:28:40.000,Male,Central,National school,A,W,C,A,B,B,A,A,S,1–2,3.0,2.0,2.0,4.0,1.0,2.0,Leadership,Friends,2.0,Commerce,Law,"Yes, very well"
+2026-06-18 08:49:42.000,Female,Uva,Provincial school,B,W,C,C,B,S,C,A,C,5–6,3.0,4.0,4.0,3.0,3.0,1.0,"Drama, Arts",Parents,3.0,Biological Science,Not sure yet,Somewhat
+2026-06-18 18:09:15.000,Male,Uva,Semi-government,A,S,S,W,C,W,B,C,C,3–4,5.0,5.0,1.0,1.0,4.0,1.0,"Arts, ICT",Own interest,1.0,Biological Science,Medicine,Somewhat
+2026-06-15 15:59:16.000,Female,Central,Semi-government,B,W,B,A,S,B,S,B,B,7–9,5.0,4.0,5.0,4.0,5.0,2.0,"Science club, Maths club",Parents,3.0,Technology,Education,"Yes, very well"
+2026-06-24 14:48:07.000,Male,Southern,Semi-government,C,B,W,A,C,C,S,A,W,5–6,5.0,3.0,1.0,2.0,4.0,5.0,"Sports, Prefect",Parents,5.0,Biological Science,Medicine,Somewhat
+2026-06-16 15:54:39.000,Female,Uva,National school,W,A,S,C,W,B,S,W,W,7–9,3.0,4.0,4.0,3.0,5.0,2.0,"Science club, Maths club",Other,3.0,Commerce,Not sure yet,"Yes, very well"
+2026-06-20 11:16:49.000,Female,Sabaragamuwa,Semi-government,A,S,W,C,B,B,C,S,C,5–6,4.0,3.0,5.0,1.0,2.0,2.0,,Teachers,3.0,Commerce,Medicine,Somewhat
