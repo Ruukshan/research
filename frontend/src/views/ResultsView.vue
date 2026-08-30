@@ -1,0 +1,635 @@
+<template>
+  <div class="results-view container">
+    <!-- Header -->
+    <div class="results-header">
+      <div class="header-badge">
+        <span class="badge badge-synthetic">Assessment ID: {{ result?.record_id || 'STU-SYN-001' }}</span>
+        <span class="badge badge-real">Hybrid Model v1.0</span>
+      </div>
+      <h1 class="page-title">Personalized Career Pathway Results</h1>
+      <p class="page-desc">AI-assisted recommendations based on your academic profile, RIASEC dimensions, and career aspirations.</p>
+    </div>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner mt-4">
+      <span>⚖️</span>
+      <p>{{ result?.disclaimer || 'Educational decision support only. Recommendations do not replace qualified counselling.' }}</p>
+    </div>
+
+    <!-- Section 1: Stream Probabilities -->
+    <section class="probabilities-section mt-6">
+      <h2 class="section-heading">1. Predicted A/L Stream Probabilities</h2>
+      <p class="section-subtext">Estimated alignment across the five Sri Lankan GCE A/L subject streams.</p>
+
+      <div class="probabilities-grid mt-4">
+        <div 
+          v-for="(prob, streamName) in result?.stream_probabilities" 
+          :key="streamName"
+          class="prob-card"
+          :class="{ 'prob-winner': streamName === result?.predicted_stream }"
+        >
+          <div class="prob-header">
+            <span class="stream-name">{{ streamName }}</span>
+            <span class="prob-pct">{{ (prob * 100).toFixed(1) }}%</span>
+          </div>
+          <div class="prob-bar-track">
+            <div 
+              class="prob-bar-fill" 
+              :class="getStreamClass(streamName)" 
+              :style="{ width: `${prob * 100}%` }"
+            ></div>
+          </div>
+          <span v-if="streamName === result?.predicted_stream" class="winner-tag">★ Highest Alignment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Top-5 Career Pathways -->
+    <section class="pathways-section mt-6">
+      <h2 class="section-heading">2. Ranked Top-5 Career Pathways</h2>
+      <p class="section-subtext">Fused recommendations combining ML Stream Confidence + Pathway Alignment + Historical Similarities.</p>
+
+      <div class="pathways-list mt-4">
+        <div 
+          v-for="rec in result?.recommendations" 
+          :key="rec.rank"
+          class="pathway-card glass-card"
+        >
+          <div class="pathway-rank-badge">
+            #{{ rec.rank }}
+          </div>
+
+          <div class="pathway-main-info">
+            <div class="pathway-meta">
+              <span class="stream-tag" :class="getStreamClass(rec.stream)">{{ rec.stream }}</span>
+              <span class="compatibility-tag">{{ rec.compatibility_level }}</span>
+            </div>
+
+            <h3 class="degree-title">{{ rec.degree_program }}</h3>
+            <div class="career-domain-text">Career Domain: <strong>{{ rec.career_domain }}</strong></div>
+
+            <p class="pathway-explanation mt-2">
+              💡 <em>{{ rec.explanation }}</em>
+            </p>
+
+            <div v-if="rec.sample_job_titles && rec.sample_job_titles.length" class="jobs-row mt-2">
+              <span class="jobs-label">Sample Roles:</span>
+              <span v-for="job in rec.sample_job_titles" :key="job" class="job-chip">{{ job }}</span>
+            </div>
+          </div>
+
+          <div class="pathway-score-box">
+            <div class="score-num">{{ (rec.score * 100).toFixed(1) }}%</div>
+            <div class="score-label">Match Score</div>
+            <div class="score-breakdown">
+              <span>ML: {{ (rec.ml_stream_score * 100).toFixed(0) }}%</span>
+              <span>Content: {{ (rec.content_similarity_score * 100).toFixed(0) }}%</span>
+              <span>Collab: {{ (rec.collaborative_score * 100).toFixed(0) }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: SHAP Explainability -->
+    <section class="shap-section mt-6">
+      <div class="section-header">
+        <div class="flex-between">
+          <div>
+            <h2 class="section-heading">3. Explainable AI (SHAP Insights)</h2>
+            <p class="section-subtext">Understanding which factors positively or negatively influenced your prediction.</p>
+          </div>
+          <button @click="showTechnicalShap = !showTechnicalShap" class="btn btn-outline btn-sm">
+            {{ showTechnicalShap ? '▲ Hide Technical Details' : '▼ Technical Details & Waterfall' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="glass-card mt-4 shap-card">
+        <h3 class="shap-title">Why {{ result?.predicted_stream }} was predicted</h3>
+
+        <div class="shap-factors-grid mt-4">
+          <div class="factors-column">
+            <h4 class="factor-heading positive-heading">▲ Key Supporting Factors (+ SHAP Contribution)</h4>
+            <ul class="factors-list">
+              <li v-for="(factor, idx) in result?.shap_explanation?.top_positive" :key="idx" class="factor-item positive-item">
+                <span class="factor-icon">+</span>
+                <span>{{ factor }}</span>
+              </li>
+              <li v-if="!result?.shap_explanation?.top_positive?.length" class="factor-item positive-item">
+                <span class="factor-icon">+</span>
+                <span>Strong aptitude in core analytical & domain subjects</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="factors-column">
+            <h4 class="factor-heading negative-heading">▼ Dampening Factors (- SHAP Contribution)</h4>
+            <ul class="factors-list">
+              <li v-for="(factor, idx) in result?.shap_explanation?.top_negative" :key="idx" class="factor-item negative-item">
+                <span class="factor-icon">-</span>
+                <span>{{ factor }}</span>
+              </li>
+              <li v-if="!result?.shap_explanation?.top_negative?.length" class="factor-item negative-item">
+                <span class="factor-icon">-</span>
+                <span>Lower orientation toward non-selected subject domains</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Technical Waterfall Plot Section -->
+        <div v-if="showTechnicalShap" class="technical-shap-box mt-4">
+          <h4 class="technical-title">Technical SHAP Attribution Waterfall</h4>
+          <p class="technical-desc">
+            Visualizing cumulative positive (red) and negative (blue) log-odds contributions from the baseline model expected value.
+          </p>
+          <div class="waterfall-img-wrapper mt-2">
+            <img :src="'/static/results/shap_waterfall.png'" alt="SHAP Waterfall" class="waterfall-img" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <div class="results-actions mt-6 text-center">
+      <router-link to="/assessment" class="btn btn-secondary">
+        🔄 Re-Take Assessment
+      </router-link>
+      <router-link to="/dashboard" class="btn btn-primary">
+        📊 View Researcher Dashboard
+      </router-link>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import { useAssessmentStore } from '../stores/assessmentStore'
+
+const store = useAssessmentStore()
+const showTechnicalShap = ref(false)
+
+const result = computed(() => {
+  if (store.assessmentResult) {
+    return store.assessmentResult
+  }
+  return {
+    record_id: 'STU-SYN-DEMO',
+    student_id: 'demo-id',
+    data_source: 'synthetic',
+    predicted_stream: 'Physical Science',
+    stream_probabilities: {
+      'Physical Science': 0.62,
+      'Technology': 0.21,
+      'Commerce': 0.08,
+      'Biological Science': 0.06,
+      'Arts': 0.03,
+    },
+    recommendations: [
+      {
+        rank: 1,
+        pathway_id: 'PATH_PS_002',
+        stream: 'Physical Science',
+        degree_area: 'Computing & Informatics',
+        degree_program: 'B.Sc. (Hons) in Computer Science / Software Engineering',
+        career_domain: 'Software Architecture & AI Engineering',
+        score: 0.88,
+        ml_stream_score: 0.62,
+        content_similarity_score: 0.92,
+        collaborative_score: 0.65,
+        compatibility_level: 'High Match',
+        explanation: 'Top ranked due to high aptitude in Mathematics & Science combined with strong RIASEC Investigative score.',
+        sample_job_titles: ['Software Engineer', 'Machine Learning Engineer', 'Cloud Architect'],
+      },
+      {
+        rank: 2,
+        pathway_id: 'PATH_PS_001',
+        stream: 'Physical Science',
+        degree_area: 'Engineering & Technology',
+        degree_program: 'B.Sc. (Eng.) in Civil / Mechanical / Electrical Engineering',
+        career_domain: 'Engineering Infrastructure & Operations',
+        score: 0.84,
+        ml_stream_score: 0.62,
+        content_similarity_score: 0.88,
+        collaborative_score: 0.60,
+        compatibility_level: 'High Match',
+        explanation: 'High mathematical foundation aligns directly with state university engineering faculties.',
+        sample_job_titles: ['Civil Engineer', 'Mechanical Engineer', 'Project Consultant'],
+      },
+      {
+        rank: 3,
+        pathway_id: 'PATH_TECH_002',
+        stream: 'Technology',
+        degree_area: 'Information & Communication Technology (BICT)',
+        degree_program: 'Bachelor of Information & Communication Technology (BICT Hons)',
+        career_domain: 'Applied Software, Network Engineering & Cloud Tech',
+        score: 0.72,
+        ml_stream_score: 0.21,
+        content_similarity_score: 0.89,
+        collaborative_score: 0.55,
+        compatibility_level: 'Moderate Match',
+        explanation: 'Cross-stream high-tech pathway leveraging your practical coding and IT interests.',
+        sample_job_titles: ['Network Engineer', 'DevOps Associate', 'Database Admin'],
+      },
+      {
+        rank: 4,
+        pathway_id: 'PATH_PS_003',
+        stream: 'Physical Science',
+        degree_area: 'Data Science & Mathematics',
+        degree_program: 'B.Sc. (Hons) in Data Science & Artificial Intelligence / Statistics',
+        career_domain: 'Data Analytics & Quantitative Research',
+        score: 0.70,
+        ml_stream_score: 0.62,
+        content_similarity_score: 0.75,
+        collaborative_score: 0.58,
+        compatibility_level: 'Moderate Match',
+        explanation: 'Quantitative analytics track with strong demand in tech and banking sectors.',
+        sample_job_titles: ['Data Scientist', 'Quantitative Analyst'],
+      },
+      {
+        rank: 5,
+        pathway_id: 'PATH_TECH_001',
+        stream: 'Technology',
+        degree_area: 'Engineering Technology & Robotics',
+        degree_program: 'Bachelor of Technology (B.Tech) in Mechatronics',
+        career_domain: 'Applied Engineering & Industrial Automation',
+        score: 0.65,
+        ml_stream_score: 0.21,
+        content_similarity_score: 0.82,
+        collaborative_score: 0.50,
+        compatibility_level: 'Exploratory Match',
+        explanation: 'Applied robotics track combining hands-on mechanics and microcontroller programming.',
+        sample_job_titles: ['Automation Specialist', 'Mechatronics Technologist'],
+      },
+    ],
+    shap_explanation: {
+      top_positive: [
+        'O/L Mathematics Grade strongly supported this stream (+0.28)',
+        'Investigative Personality (RIASEC) increased suitability (+0.19)',
+        'Coding & Robotics Club Experience boosted score (+0.14)',
+      ],
+      top_negative: [
+        'Lower score for Biological Science electives (-0.22)',
+        'Lower score for Conventional accounting focus (-0.15)',
+      ],
+    },
+    disclaimer: 'This system provides AI-assisted career pathway recommendations for educational decision support. It should not replace advice from qualified teachers, counsellors, parents or career guidance professionals.',
+  }
+})
+
+const getStreamClass = (streamName: string) => {
+  switch (streamName) {
+    case 'Physical Science': return 'fill-physical'
+    case 'Biological Science': return 'fill-bio'
+    case 'Commerce': return 'fill-commerce'
+    case 'Arts': return 'fill-arts'
+    case 'Technology': return 'fill-tech'
+    default: return ''
+  }
+}
+</script>
+
+<style scoped>
+.results-view {
+  padding: 2rem 0;
+}
+
+.results-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-badge {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.page-desc {
+  color: var(--text-secondary);
+}
+
+.section-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.section-subtext {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Probabilities Grid */
+.probabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.prob-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.prob-winner {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.25);
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.prob-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.stream-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.prob-pct {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.prob-bar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-surface-elevated);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.prob-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.8s ease-in-out;
+}
+
+.fill-physical { background: var(--stream-physical); }
+.fill-bio { background: var(--stream-biological); }
+.fill-commerce { background: var(--stream-commerce); }
+.fill-arts { background: var(--stream-arts); }
+.fill-tech { background: var(--stream-technology); }
+
+.winner-tag {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #818cf8;
+  font-weight: 600;
+}
+
+/* Pathways Cards */
+.pathways-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pathway-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.pathway-rank-badge {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--primary-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pathway-main-info {
+  flex: 1;
+}
+
+.pathway-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.stream-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.stream-tag.fill-physical { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.stream-tag.fill-bio { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.stream-tag.fill-commerce { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.stream-tag.fill-arts { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+.stream-tag.fill-tech { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
+
+.compatibility-tag {
+  font-size: 0.75rem;
+  background: var(--bg-surface-elevated);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+}
+
+.degree-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.career-domain-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.pathway-explanation {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.jobs-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.jobs-label {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+.job-chip {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.pathway-score-box {
+  text-align: right;
+  min-width: 110px;
+}
+
+.score-num {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.score-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-breakdown {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* SHAP Card */
+.shap-card {
+  padding: 1.75rem;
+}
+
+.shap-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.shap-factors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.factors-column {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.factor-heading {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.positive-heading { color: #34d399; }
+.negative-heading { color: #f87171; }
+
+.factors-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.factor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.positive-item .factor-icon { color: #34d399; font-weight: 800; }
+.negative-item .factor-icon { color: #f87171; font-weight: 800; }
+
+.technical-shap-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.technical-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.technical-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.waterfall-img-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #0d1322;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+}
+
+.waterfall-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+.results-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-6 { margin-top: 3rem; }
+.text-center { text-align: center; }
+
+@media (max-width: 768px) {
+  .pathway-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pathway-score-box {
+    text-align: left;
+  }
+}
+</style>
