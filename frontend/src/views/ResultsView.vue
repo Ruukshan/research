@@ -3,8 +3,9 @@
     <!-- Header -->
     <div class="results-header">
       <div class="header-badge">
-        <span class="badge badge-synthetic">Assessment ID: {{ result?.record_id || 'STU-SYN-001' }}</span>
-        <span class="badge badge-real">Hybrid Model v1.0</span>
+        <span class="badge badge-real">{{ result?.model_name || 'Empirical Best Model' }}</span>
+        <span class="badge badge-synthetic">Data Mode: Real Survey + Augmented</span>
+        <span class="badge badge-real">Hybrid Fusion Engine</span>
       </div>
       <h1 class="page-title">Personalized Career Pathway Results</h1>
       <p class="page-desc">AI-assisted recommendations based on your academic profile, RIASEC dimensions, and career aspirations.</p>
@@ -348,40 +349,41 @@ const getStreamClass = (streamName: string) => {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
+  padding: 1.4rem;
   position: relative;
   transition: var(--transition-smooth);
 }
 
 .prob-winner {
   border-color: var(--primary);
-  box-shadow: 0 0 15px rgba(79, 70, 229, 0.25);
-  background: rgba(79, 70, 229, 0.08);
+  box-shadow: var(--shadow-glow-blue);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(11, 17, 32, 0.9) 100%);
 }
 
 .prob-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .stream-name {
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .prob-pct {
   font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 800;
+  font-size: 1.2rem;
   color: var(--text-primary);
 }
 
 .prob-bar-track {
   width: 100%;
-  height: 8px;
-  background: var(--bg-surface-elevated);
+  height: 9px;
+  background: rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-full);
   overflow: hidden;
 }
@@ -389,50 +391,55 @@ const getStreamClass = (streamName: string) => {
 .prob-bar-fill {
   height: 100%;
   border-radius: var(--radius-full);
-  transition: width 0.8s ease-in-out;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.fill-physical { background: var(--stream-physical); }
-.fill-bio { background: var(--stream-biological); }
-.fill-commerce { background: var(--stream-commerce); }
-.fill-arts { background: var(--stream-arts); }
-.fill-tech { background: var(--stream-technology); }
+.fill-physical { background: var(--gradient-physical); }
+.fill-bio { background: var(--gradient-biological); }
+.fill-commerce { background: var(--gradient-commerce); }
+.fill-arts { background: var(--gradient-arts); }
+.fill-tech { background: var(--gradient-technology); }
 
 .winner-tag {
   display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: #818cf8;
-  font-weight: 600;
+  margin-top: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  color: #60a5fa;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 /* Pathways Cards */
 .pathways-list {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .pathway-card {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
+  gap: 1.75rem;
+  padding: 1.75rem;
+  border-left: 4px solid rgba(59, 130, 246, 0.4);
 }
 
 .pathway-rank-badge {
-  font-family: var(--font-mono);
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--primary);
-  width: 3.5rem;
-  height: 3.5rem;
-  background: var(--primary-light);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  width: 3.8rem;
+  height: 3.8rem;
+  background: var(--primary-gradient);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 
 .pathway-main-info {
@@ -442,102 +449,122 @@ const getStreamClass = (streamName: string) => {
 .pathway-meta {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
 .stream-tag {
+  font-family: var(--font-heading);
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.15rem 0.5rem;
+  padding: 0.2rem 0.65rem;
   border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .stream-tag.fill-physical { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
 .stream-tag.fill-bio { background: rgba(16, 185, 129, 0.15); color: #34d399; }
 .stream-tag.fill-commerce { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-.stream-tag.fill-arts { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+.stream-tag.fill-arts { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
 .stream-tag.fill-tech { background: rgba(6, 182, 212, 0.15); color: #22d3ee; }
 
 .compatibility-tag {
+  font-family: var(--font-heading);
   font-size: 0.75rem;
-  background: var(--bg-surface-elevated);
-  padding: 0.15rem 0.5rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.2rem 0.6rem;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
 }
 
 .degree-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.2rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
 }
 
 .career-domain-text {
-  font-size: 0.875rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
 }
 
 .pathway-explanation {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 .jobs-row {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   flex-wrap: wrap;
 }
 
 .jobs-label {
-  font-size: 0.775rem;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
   color: var(--text-muted);
 }
 
 .job-chip {
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-subtle);
-  padding: 0.1rem 0.45rem;
-  border-radius: var(--radius-sm);
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+  color: var(--text-secondary);
 }
 
 .pathway-score-box {
   text-align: right;
-  min-width: 110px;
+  min-width: 120px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
 }
 
 .score-num {
   font-family: var(--font-mono);
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--accent);
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #38bdf8;
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
 }
 
 .score-label {
-  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .score-breakdown {
   display: flex;
   flex-direction: column;
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   color: var(--text-muted);
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
+  gap: 0.1rem;
 }
 
 /* SHAP Card */
 .shap-card {
-  padding: 1.75rem;
+  padding: 1.85rem;
 }
 
 .shap-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
 }
 
 .shap-factors-grid {
@@ -550,13 +577,17 @@ const getStreamClass = (streamName: string) => {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
+  padding: 1.4rem;
 }
 
 .factor-heading {
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .positive-heading { color: #34d399; }
@@ -566,15 +597,15 @@ const getStreamClass = (streamName: string) => {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 
 .factor-item {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-size: 0.86rem;
+  line-height: 1.45;
 }
 
 .positive-item .factor-icon { color: #34d399; font-weight: 800; }
@@ -584,26 +615,27 @@ const getStreamClass = (streamName: string) => {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
+  padding: 1.4rem;
 }
 
 .technical-title {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
   margin-bottom: 0.25rem;
 }
 
 .technical-desc {
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
 }
 
 .waterfall-img-wrapper {
   display: flex;
   justify-content: center;
-  background: #0d1322;
+  background: #090e1c;
   border-radius: var(--radius-sm);
-  padding: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
 }
 
 .waterfall-img {
@@ -615,7 +647,8 @@ const getStreamClass = (streamName: string) => {
 .results-actions {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .mt-2 { margin-top: 0.5rem; }
@@ -630,6 +663,7 @@ const getStreamClass = (streamName: string) => {
   }
   .pathway-score-box {
     text-align: left;
+    width: 100%;
   }
 }
 </style>

@@ -22,6 +22,21 @@
       </div>
     </div>
 
+    <!-- Quick Preset Buttons -->
+    <div class="preset-strip glass-card mt-4">
+      <div class="preset-label">
+        <span>⚡</span>
+        <strong>Test Real Survey Archetypes:</strong>
+      </div>
+      <div class="preset-buttons">
+        <button type="button" @click="loadPreset('tech')" class="preset-btn btn-tech">💻 Technology</button>
+        <button type="button" @click="loadPreset('bio')" class="preset-btn btn-bio">🔬 Bio Science</button>
+        <button type="button" @click="loadPreset('math')" class="preset-btn btn-math">📐 Physical Science</button>
+        <button type="button" @click="loadPreset('comm')" class="preset-btn btn-comm">📊 Commerce</button>
+        <button type="button" @click="loadPreset('arts')" class="preset-btn btn-arts">🎨 Arts</button>
+      </div>
+    </div>
+
     <!-- Multi-Step Card -->
     <div class="glass-card mt-4 assessment-card">
       <!-- Step 1: Academic Profile -->
@@ -482,6 +497,70 @@ const goToStep = (stepNum: number) => {
   }
 }
 
+const loadPreset = (type: 'tech' | 'bio' | 'math' | 'comm' | 'arts') => {
+  if (type === 'tech') {
+    store.formData.academic = {
+      math_grade: 'A', science_grade: 'A', english_grade: 'A', first_lang_grade: 'B', history_grade: 'B', religion_grade: 'A',
+      basket_1_subject: 'ICT', basket_1_grade: 'A', basket_2_subject: 'Drama', basket_2_grade: 'B', basket_3_subject: 'Design_Tech', basket_3_grade: 'A'
+    }
+    store.formData.extracurricular = {
+      has_sports: true, has_clubs_societies: true, has_coding_robotics: true, has_debating_media: false, has_music_performing_arts: false,
+      has_visual_arts: false, has_volunteering_scouts: false, has_leadership_prefect: true, has_reading_writing: true, has_entrepreneurship: false
+    }
+    store.formData.personality = { score_realistic: 4.8, score_investigative: 4.6, score_artistic: 2.3, score_social: 2.8, score_enterprising: 3.5, score_conventional: 3.9 }
+    store.formData.career.preferred_career_domain = 'Software Architecture & AI'
+    store.formData.career.higher_education_interest = 'State University Technology Degree'
+  } else if (type === 'bio') {
+    store.formData.academic = {
+      math_grade: 'B', science_grade: 'A', english_grade: 'A', first_lang_grade: 'A', history_grade: 'A', religion_grade: 'A',
+      basket_1_subject: 'Geography', basket_1_grade: 'A', basket_2_subject: 'Drama', basket_2_grade: 'B', basket_3_subject: 'Health_Science', basket_3_grade: 'A'
+    }
+    store.formData.extracurricular = {
+      has_sports: true, has_clubs_societies: true, has_coding_robotics: false, has_debating_media: false, has_music_performing_arts: false,
+      has_visual_arts: false, has_volunteering_scouts: true, has_leadership_prefect: true, has_reading_writing: false, has_entrepreneurship: false
+    }
+    store.formData.personality = { score_realistic: 2.5, score_investigative: 4.8, score_artistic: 2.0, score_social: 4.7, score_enterprising: 3.0, score_conventional: 3.4 }
+    store.formData.career.preferred_career_domain = 'Medicine & Clinical Surgery'
+    store.formData.career.higher_education_interest = 'State University Degree'
+  } else if (type === 'math') {
+    store.formData.academic = {
+      math_grade: 'A', science_grade: 'A', english_grade: 'A', first_lang_grade: 'A', history_grade: 'A', religion_grade: 'A',
+      basket_1_subject: 'ICT', basket_1_grade: 'A', basket_2_subject: 'Art', basket_2_grade: 'B', basket_3_subject: 'Design_Tech', basket_3_grade: 'A'
+    }
+    store.formData.extracurricular = {
+      has_sports: true, has_clubs_societies: true, has_coding_robotics: true, has_debating_media: false, has_music_performing_arts: false,
+      has_visual_arts: false, has_volunteering_scouts: false, has_leadership_prefect: true, has_reading_writing: false, has_entrepreneurship: false
+    }
+    store.formData.personality = { score_realistic: 4.6, score_investigative: 4.9, score_artistic: 2.0, score_social: 2.4, score_enterprising: 3.2, score_conventional: 4.3 }
+    store.formData.career.preferred_career_domain = 'Civil & Structural Engineering'
+    store.formData.career.higher_education_interest = 'State University Degree'
+  } else if (type === 'comm') {
+    store.formData.academic = {
+      math_grade: 'B', science_grade: 'C', english_grade: 'A', first_lang_grade: 'A', history_grade: 'A', religion_grade: 'A',
+      basket_1_subject: 'Commerce', basket_1_grade: 'A', basket_2_subject: 'Art', basket_2_grade: 'B', basket_3_subject: 'Health_Science', basket_3_grade: 'B'
+    }
+    store.formData.extracurricular = {
+      has_sports: false, has_clubs_societies: true, has_coding_robotics: false, has_debating_media: true, has_music_performing_arts: false,
+      has_visual_arts: false, has_volunteering_scouts: false, has_leadership_prefect: true, has_reading_writing: true, has_entrepreneurship: true
+    }
+    store.formData.personality = { score_realistic: 2.1, score_investigative: 3.0, score_artistic: 2.8, score_social: 3.8, score_enterprising: 4.8, score_conventional: 4.6 }
+    store.formData.career.preferred_career_domain = 'Accounting, Audit & Taxation'
+    store.formData.career.higher_education_interest = 'Professional Qualification'
+  } else if (type === 'arts') {
+    store.formData.academic = {
+      math_grade: 'C', science_grade: 'S', english_grade: 'A', first_lang_grade: 'A', history_grade: 'A', religion_grade: 'A',
+      basket_1_subject: 'Civics', basket_1_grade: 'A', basket_2_subject: 'Drama', basket_2_grade: 'A', basket_3_subject: 'Home_Economics', basket_3_grade: 'B'
+    }
+    store.formData.extracurricular = {
+      has_sports: false, has_clubs_societies: true, has_coding_robotics: false, has_debating_media: true, has_music_performing_arts: true,
+      has_visual_arts: true, has_volunteering_scouts: true, has_leadership_prefect: true, has_reading_writing: true, has_entrepreneurship: false
+    }
+    store.formData.personality = { score_realistic: 1.8, score_investigative: 2.4, score_artistic: 4.9, score_social: 4.5, score_enterprising: 3.9, score_conventional: 2.3 }
+    store.formData.career.preferred_career_domain = 'Law, Judiciary & Advocacy'
+    store.formData.career.higher_education_interest = 'State University Degree'
+  }
+}
+
 const handleSubmit = async () => {
   try {
     await store.submitAssessment()
@@ -493,6 +572,54 @@ const handleSubmit = async () => {
 </script>
 
 <style scoped>
+.preset-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  gap: 0.75rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preset-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.preset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.preset-btn {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-tech:hover { border-color: #06b6d4; color: #06b6d4; }
+.btn-bio:hover { border-color: #10b981; color: #10b981; }
+.btn-math:hover { border-color: #3b82f6; color: #3b82f6; }
+.btn-comm:hover { border-color: #f59e0b; color: #f59e0b; }
+.btn-arts:hover { border-color: #ec4899; color: #ec4899; }
+
 .assessment-view {
   padding: 2rem 0;
   max-width: 900px;

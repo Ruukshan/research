@@ -77,6 +77,7 @@ export interface AssessmentSubmissionResult {
   student_id: string;
   record_id: string;
   data_source: string;
+  model_name?: string;
   stream_probabilities: Record<string, number>;
   predicted_stream: string;
   recommendations: PathwayRecommendationItem[];

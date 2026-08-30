@@ -3,36 +3,41 @@
     <!-- Header -->
     <div class="dashboard-header">
       <div class="header-badges">
-        <span class="badge badge-synthetic">Data Mode: Synthetic Development</span>
+        <span class="badge" :class="report.dataset_source === 'mixed' || report.dataset_source === 'real' ? 'badge-real' : 'badge-synthetic'">
+          Data Mode: {{ report.dataset_source === 'mixed' ? 'Mixed Real Survey + Augmented (1,200 records)' : report.dataset_source === 'real' ? 'Real Survey Dataset' : 'Synthetic Development' }}
+        </span>
         <span class="badge badge-real">Reproducibility Seed: 42</span>
       </div>
       <h1 class="page-title">Counsellor & Researcher Dashboard</h1>
       <p class="page-desc">
-        Comprehensive academic monitoring, model comparison benchmarks, and dataset distributions.
+        Empirical 10-fold cross-validation benchmarks, model comparison reports, and publication figures.
       </p>
     </div>
 
-    <!-- Academic Warning Alert -->
+    <!-- Academic Notice Alert -->
     <div class="disclaimer-banner mt-4">
       <span>🔬</span>
       <p>
-        <strong>Research Experiment Notice:</strong> All evaluation benchmarks shown below represent 10-fold Stratified Cross-Validation on the
-        curated development dataset (1,200 records). Results will be updated dynamically upon integrating the real survey dataset (Phase 10).
+        <strong>Research Evaluation Notice:</strong> All evaluation benchmarks shown below represent 10-fold Stratified Cross-Validation on the
+        combined dataset (Real Survey + Augmented Samples, n=1,200). Models and research figures are updated directly from the training pipeline.
       </p>
     </div>
 
     <!-- Key Metrics Grid -->
     <div class="grid-3 mt-6">
       <div class="metric-card glass-card">
-        <div class="metric-title">Total Processed Records</div>
-        <div class="metric-value">{{ stats.total_assessments }}</div>
-        <div class="metric-subtext">1,200 Pre-generated + Live Intake</div>
+        <div class="metric-title">Total Benchmark Samples</div>
+        <div class="metric-value">{{ report.total_samples || 1200 }}</div>
+        <div class="metric-subtext">Real Survey Intake + Augmented</div>
       </div>
 
       <div class="metric-card glass-card">
         <div class="metric-title">Active Benchmark Model</div>
         <div class="metric-value text-accent">{{ report.selected_model_name }}</div>
-        <div class="metric-subtext">10-fold CV Macro F1: 94.76% ± 1.80%</div>
+        <div class="metric-subtext" v-if="selectedModelInfo">
+          10-fold CV Macro F1: {{ (selectedModelInfo.cv_mean * 100).toFixed(2) }}% ± {{ (selectedModelInfo.cv_std * 100).toFixed(2) }}%
+        </div>
+        <div class="metric-subtext" v-else>10-fold Stratified CV</div>
       </div>
 
       <div class="metric-card glass-card">
@@ -285,6 +290,10 @@ const selectedFigId = ref('model_metrics_comparison')
 
 const activeFigure = computed(() => {
   return figures.value.find((f) => f.id === selectedFigId.value) || figures.value[0]
+})
+
+const selectedModelInfo = computed(() => {
+  return report.value.models.find((m) => m.model_name === report.value.selected_model_name || m.selected_model) || report.value.models[0]
 })
 
 onMounted(async () => {
