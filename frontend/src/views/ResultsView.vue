@@ -3,8 +3,9 @@
     <!-- Header -->
     <div class="results-header">
       <div class="header-badge">
-        <span class="badge badge-synthetic">Assessment ID: {{ result?.record_id || 'STU-SYN-001' }}</span>
-        <span class="badge badge-real">Hybrid Model v1.0</span>
+        <span class="badge badge-real">{{ result?.model_name || 'Empirical Best Model' }}</span>
+        <span class="badge badge-synthetic">Data Mode: Real Survey + Augmented</span>
+        <span class="badge badge-real">Hybrid Fusion Engine</span>
       </div>
       <h1 class="page-title">Personalized Career Pathway Results</h1>
       <p class="page-desc">AI-assisted recommendations based on your academic profile, RIASEC dimensions, and career aspirations.</p>

@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api"
 
     # Data Source & Mode: "synthetic" | "real" | "mixed"
-    DATA_MODE: Literal["synthetic", "real", "mixed"] = "synthetic"
+    DATA_MODE: Literal["synthetic", "real", "mixed"] = "mixed"
 
     # Database Configuration
     DATABASE_URL: str = f"sqlite:///{BASE_DIR / 'research_app.db'}"
