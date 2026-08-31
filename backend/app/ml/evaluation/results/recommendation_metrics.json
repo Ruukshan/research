@@ -1,0 +1,134 @@
+{
+  "Real Survey Cohort": {
+    "Random Baseline": {
+      "P@5": 0.2348,
+      "NDCG@5": 0.3206,
+      "MRR@5": 0.4225,
+      "Top1_Stream_Alignment": 0.2174,
+      "Catalog_Coverage": 1.0
+    },
+    "Popularity Baseline": {
+      "P@5": 0.2783,
+      "NDCG@5": 0.3948,
+      "MRR@5": 0.3551,
+      "Top1_Stream_Alignment": 0.2899,
+      "Catalog_Coverage": 0.3333
+    },
+    "Pure Collaborative Filtering (w3=1.0)": {
+      "P@5": 0.2435,
+      "NDCG@5": 0.3379,
+      "MRR@5": 0.2971,
+      "Top1_Stream_Alignment": 0.2319,
+      "Catalog_Coverage": 1.0
+    },
+    "Pure Content-Based (w2=1.0)": {
+      "P@5": 0.2464,
+      "NDCG@5": 0.4284,
+      "MRR@5": 0.4232,
+      "Top1_Stream_Alignment": 0.3623,
+      "Catalog_Coverage": 1.0
+    },
+    "ML Stream Classifier Only (w1=1.0)": {
+      "P@5": 0.5507,
+      "NDCG@5": 0.8826,
+      "MRR@5": 0.8877,
+      "Top1_Stream_Alignment": 0.8696,
+      "Catalog_Coverage": 1.0
+    },
+    "Hybrid Fusion (Proposed: 0.45 / 0.35 / 0.20)": {
+      "P@5": 0.4928,
+      "NDCG@5": 0.776,
+      "MRR@5": 0.7698,
+      "Top1_Stream_Alignment": 0.7246,
+      "Catalog_Coverage": 1.0
+    }
+  },
+  "Held-Out Test Set (20% Split)": {
+    "Random Baseline": {
+      "P@5": 0.2058,
+      "NDCG@5": 0.2591,
+      "MRR@5": 0.3949,
+      "Top1_Stream_Alignment": 0.2167,
+      "Catalog_Coverage": 1.0
+    },
+    "Popularity Baseline": {
+      "P@5": 0.2483,
+      "NDCG@5": 0.3404,
+      "MRR@5": 0.3271,
+      "Top1_Stream_Alignment": 0.275,
+      "Catalog_Coverage": 0.3333
+    },
+    "Pure Collaborative Filtering (w3=1.0)": {
+      "P@5": 0.5867,
+      "NDCG@5": 0.8866,
+      "MRR@5": 0.9552,
+      "Top1_Stream_Alignment": 0.9417,
+      "Catalog_Coverage": 1.0
+    },
+    "Pure Content-Based (w2=1.0)": {
+      "P@5": 0.4925,
+      "NDCG@5": 0.8566,
+      "MRR@5": 0.9392,
+      "Top1_Stream_Alignment": 0.8917,
+      "Catalog_Coverage": 1.0
+    },
+    "ML Stream Classifier Only (w1=1.0)": {
+      "P@5": 0.5975,
+      "NDCG@5": 0.9165,
+      "MRR@5": 0.9906,
+      "Top1_Stream_Alignment": 0.9875,
+      "Catalog_Coverage": 1.0
+    },
+    "Hybrid Fusion (Proposed: 0.45 / 0.35 / 0.20)": {
+      "P@5": 0.5967,
+      "NDCG@5": 0.979,
+      "MRR@5": 0.9875,
+      "Top1_Stream_Alignment": 0.9833,
+      "Catalog_Coverage": 1.0
+    }
+  },
+  "Full Benchmark Cohort": {
+    "Random Baseline": {
+      "P@5": 0.1997,
+      "NDCG@5": 0.2604,
+      "MRR@5": 0.3742,
+      "Top1_Stream_Alignment": 0.1825,
+      "Catalog_Coverage": 1.0
+    },
+    "Popularity Baseline": {
+      "P@5": 0.2297,
+      "NDCG@5": 0.3119,
+      "MRR@5": 0.2977,
+      "Top1_Stream_Alignment": 0.2467,
+      "Catalog_Coverage": 0.3333
+    },
+    "Pure Collaborative Filtering (w3=1.0)": {
+      "P@5": 0.5613,
+      "NDCG@5": 0.8456,
+      "MRR@5": 0.9008,
+      "Top1_Stream_Alignment": 0.88,
+      "Catalog_Coverage": 1.0
+    },
+    "Pure Content-Based (w2=1.0)": {
+      "P@5": 0.4757,
+      "NDCG@5": 0.8289,
+      "MRR@5": 0.9,
+      "Top1_Stream_Alignment": 0.8475,
+      "Catalog_Coverage": 1.0
+    },
+    "ML Stream Classifier Only (w1=1.0)": {
+      "P@5": 0.5955,
+      "NDCG@5": 0.9179,
+      "MRR@5": 0.9873,
+      "Top1_Stream_Alignment": 0.9842,
+      "Catalog_Coverage": 1.0
+    },
+    "Hybrid Fusion (Proposed: 0.45 / 0.35 / 0.20)": {
+      "P@5": 0.591,
+      "NDCG@5": 0.9682,
+      "MRR@5": 0.9786,
+      "Top1_Stream_Alignment": 0.9733,
+      "Catalog_Coverage": 1.0
+    }
+  }
+}
